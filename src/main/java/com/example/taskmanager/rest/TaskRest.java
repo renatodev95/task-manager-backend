@@ -19,4 +19,7 @@ public interface TaskRest {
 
     @PutMapping(path = "/update/{id}")
     ResponseEntity<String> updateTask(@PathVariable @NotNull @Positive Long id, @RequestBody TaskDTO dto);
+
+    @DeleteMapping(path = "/delete/{id}")
+    ResponseEntity<String> deleteTask(@PathVariable @NotNull @Positive Long id);
 }

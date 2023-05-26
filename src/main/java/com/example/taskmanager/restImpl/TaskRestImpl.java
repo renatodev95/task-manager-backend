@@ -7,7 +7,6 @@ import com.example.taskmanager.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class TaskRestImpl implements TaskRest {
 
 
     @Override
-    public ResponseEntity<String> createTask(@RequestBody TaskDTO dto) {
+    public ResponseEntity<String> createTask(TaskDTO dto) {
         try {
             return service.createTask(dto);
         } catch (Exception ex) {
@@ -44,6 +43,16 @@ public class TaskRestImpl implements TaskRest {
     public ResponseEntity<String> updateTask(Long id, TaskDTO dto) {
         try {
             return service.updateTask(id, dto);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(TaskConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> deleteTask(Long id) {
+        try {
+            return service.deleteTask(id);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

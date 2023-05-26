@@ -49,4 +49,10 @@ public class TaskServiceImpl implements TaskService {
         dao.save(task);
         return new ResponseEntity<>(TaskConstants.TASK_UPDATED_SUCCESSFULLY, HttpStatus.OK);
     }
+
+    @Override
+    public ResponseEntity<String> deleteTask(Long id) {
+        dao.delete(dao.findById(id).orElseThrow(() -> new RecordNotFoundException(id)));
+        return new ResponseEntity<>(TaskConstants.TASK_DELETED_SUCCESSFULLY, HttpStatus.OK);
+    }
 }

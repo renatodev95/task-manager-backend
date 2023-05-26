@@ -5,4 +5,5 @@ public class TaskConstants {
     public static final String SOMETHING_WENT_WRONG = "Algo deu errado!";
     public static final String TASK_ADDED_SUCCESSFULLY = "Tarefa adicionada com sucesso.";
     public static final String TASK_UPDATED_SUCCESSFULLY = "Tarefa atualizada com sucesso.";
+    public static final String TASK_DELETED_SUCCESSFULLY = "Tarefa removida com sucesso.";
 }

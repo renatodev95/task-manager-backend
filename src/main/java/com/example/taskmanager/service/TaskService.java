@@ -13,4 +13,6 @@ public interface TaskService {
     ResponseEntity<String> createTask(TaskDTO dto) throws ParseException;
 
     ResponseEntity<String> updateTask(Long id, TaskDTO dto);
+
+    ResponseEntity<String> deleteTask(Long id);
 }
